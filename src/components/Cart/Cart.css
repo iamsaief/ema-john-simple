@@ -1,0 +1,15 @@
+.cart h3 {
+	margin: 5px 0;
+}
+.cart-total {
+	text-align: center;
+	margin-top: 20px;
+}
+.cart-total p,
+.cart-total h3 {
+	display: flex;
+	justify-content: space-between;
+}
+.cart-total h3 {
+	color: #c32d00;
+}
