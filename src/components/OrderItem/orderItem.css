@@ -1,0 +1,11 @@
+.product.order-item .product-img {
+	max-width: 20%;
+}
+
+.product.order-item .product-info {
+	max-width: 80%;
+}
+
+.product.order-item .product-img img {
+	max-width: 100%;
+}

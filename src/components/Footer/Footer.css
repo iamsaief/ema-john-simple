@@ -12,3 +12,6 @@
 .footer a:hover {
 	text-decoration: underline;
 }
+.footer span {
+	font-size: 0.8rem;
+}

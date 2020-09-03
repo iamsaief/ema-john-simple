@@ -1,13 +1,9 @@
 import React from "react";
 import "./Cart.css";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faCartArrowDown } from "@fortawesome/free-solid-svg-icons";
 
 const Cart = (props) => {
 	const cart = props.cart;
-	console.log(cart);
-
-	const total = cart.reduce((total, prd) => total + prd.price, 0);
+	const total = cart.reduce((total, prd) => total + prd.price * prd.quantity, 0);
 
 	let shipping = 0;
 	if (total > 250) shipping = 0;
@@ -22,13 +18,12 @@ const Cart = (props) => {
 	}
 
 	return (
-		<div className='cart'>
+		<div className="cart">
 			<h3>Order Summary</h3>
 			<p>Items ordered:{cart.length}</p>
-			<div className='cart-total'>
+			<div className="cart-total">
 				<p>
-					<small> Items price:</small>{" "}
-					<small> $ {getRoundPrice(total)}</small>
+					<small> Items price:</small> <small> $ {getRoundPrice(total)}</small>
 				</p>
 				<p>
 					<small> Shipping:</small> <small> $ {shipping}</small>
@@ -38,16 +33,13 @@ const Cart = (props) => {
 					<small> $ {getRoundPrice(total + shipping)}</small>
 				</p>
 				<p>
-					<small> Estimated Tax:</small>{" "}
-					<small> ${getRoundPrice(tax)}</small>
+					<small> Estimated Tax:</small> <small> ${getRoundPrice(tax)}</small>
 				</p>
 				<h3>
 					<small> Order Total:</small>
 					<small> ${getRoundPrice(total + shipping + tax)}</small>
 				</h3>
-				<button>
-					<FontAwesomeIcon icon={faCartArrowDown} /> Checkout
-				</button>
+				{props.children}
 			</div>
 		</div>
 	);

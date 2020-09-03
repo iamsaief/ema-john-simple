@@ -1,5 +1,7 @@
 .cart {
 	text-align: center;
+	position: sticky;
+	top: 2rem;
 }
 .cart h3 {
 	margin: 5px 0;
