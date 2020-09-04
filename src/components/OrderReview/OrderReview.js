@@ -34,8 +34,11 @@ const OrderReview = () => {
 	const handlePlaceOrder = () => {
 		console.log("order placed");
 		setCart([]);
-		setOrderPlaced(true);
+		if (cart.length) {
+			setOrderPlaced(true);
+		}
 		processOrder();
+		console.log(cart.length);
 	};
 
 	let orderPlacedMsg;
@@ -47,9 +50,17 @@ const OrderReview = () => {
 		);
 	}
 
+	const emptyCartMsg = (
+		<div style={{textAlign: "center"}}>
+			<h2 style={{padding: "20px 0"}}>No items on the cart</h2>
+			<img src="https://media.giphy.com/media/9Y5BbDSkSTiY8/giphy.gif" alt="" />
+		</div>
+	);
+
 	return (
 		<div className="shop-container">
 			<div className="product-container">
+				{!cart.length && !orderPlaced && emptyCartMsg}
 				{cart.map((pd) => (
 					<OrderItem key={pd.key} product={pd} handleRemoveProduct={handleRemoveProduct}></OrderItem>
 				))}
